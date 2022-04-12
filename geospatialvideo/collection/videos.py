@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 class Videos:
     videos: list["Video"]
 
-    def flatmap_frames(self) -> "Frames":
+    def flatten_frames(self) -> "Frames":
         pass
 
     def flatmap_instances(self) -> "Instances":

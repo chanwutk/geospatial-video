@@ -1,6 +1,5 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from enum import Enum, auto
 from typing import TYPE_CHECKING, Callable
 
 if TYPE_CHECKING:
@@ -14,7 +13,7 @@ if TYPE_CHECKING:
 class Instances:
     instances: list["Instance"]
 
-    def join(self, *others: tuple["Instances"]) -> "JoinedInstances":
+    def crossproduct(self, *others: tuple["Instances"]) -> "JoinedInstances":
         pass
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "Instances":
