@@ -1,11 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Callable, Protocol
-
-from mypy_extensions import VarArg
+from typing import TYPE_CHECKING, Protocol
 
 if TYPE_CHECKING:
-    from geospatialvideo.collection.instances import Instances
+    from geospatialvideo.collection.instance import InstanceCollection
     from geospatialvideo.instance import Instance
 
 
@@ -14,13 +12,13 @@ class JoinPredicate(Protocol):
 
 
 @dataclass
-class JoinedInstances:
+class JoinedInstanceCollection:
     joined_instances: list[tuple["Instance"]]
 
-    def join(self, *others: tuple["Instances"]) -> "JoinedInstances":
+    def join(self, *others: tuple["InstanceCollection"]) -> "JoinedInstanceCollection":
         pass
 
-    def filter(self, predicate: JoinPredicate) -> "JoinedInstances":
+    def filter(self, predicate: JoinPredicate) -> "JoinedInstanceCollection":
         pass
 
     def overlay() -> None:

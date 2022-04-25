@@ -1,8 +1,8 @@
-from .annotations import Annotations
-from .frames import Frames
-from .instances import Instances
-from .joined_instances import JoinedInstances
-from .videos import Videos
+from .annotation import AnnotationCollection
+from .frame import FrameCollection
+from .instance import InstanceCollection
+from .joined_instance import JoinedInstanceCollection
+from .video import VideoCollection
 
 
-__all__ = ["Annotations", "Frames", "Instances", "JoinedInstances", "Videos"]
+__all__ = ["AnnotationCollection", "FrameCollection", "InstanceCollection", "JoinedInstanceCollection", "VideoCollection"]

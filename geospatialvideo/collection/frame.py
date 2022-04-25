@@ -7,10 +7,10 @@ if TYPE_CHECKING:
 
 
 @dataclass
-class Frames:
+class FrameCollection:
     frames: list["Frame"]
 
-    def filter(self, predicate: Callable[["Frame"], bool]) -> "Frames":
+    def filter(self, predicate: Callable[["Frame"], bool]) -> "FrameCollection":
         pass
 
     def overlay(self) -> None:
