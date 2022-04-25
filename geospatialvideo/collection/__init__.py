@@ -4,5 +4,10 @@ from .instance import InstanceCollection
 from .joined_instance import JoinedInstanceCollection
 from .video import VideoCollection
 
-
-__all__ = ["AnnotationCollection", "FrameCollection", "InstanceCollection", "JoinedInstanceCollection", "VideoCollection"]
+__all__ = [
+    "AnnotationCollection",
+    "FrameCollection",
+    "InstanceCollection",
+    "JoinedInstanceCollection",
+    "VideoCollection",
+]

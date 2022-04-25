@@ -1,11 +1,11 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Callable
 
 if TYPE_CHECKING:
-    from geospatialvideo.collection.joined_instance import (
-        JoinedInstanceCollection,
-    )
+    from geospatialvideo.collection.joined_instance import \
+        JoinedInstanceCollection
     from geospatialvideo.instance import Instance
 
 
@@ -13,7 +13,9 @@ if TYPE_CHECKING:
 class InstanceCollection:
     instances: list["Instance"]
 
-    def crossproduct(self, *others: tuple["InstanceCollection"]) -> "JoinedInstanceCollection":
+    def crossproduct(
+        self, *others: tuple["InstanceCollection"]
+    ) -> "JoinedInstanceCollection":
         pass
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":

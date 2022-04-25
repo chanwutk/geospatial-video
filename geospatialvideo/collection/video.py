@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from geospatialvideo.video import Video
-    from geospatialvideo.collection.instance import InstanceCollection
     from geospatialvideo.collection.frame import FrameCollection
+    from geospatialvideo.collection.instance import InstanceCollection
+    from geospatialvideo.video import Video
 
 
 @dataclass
