@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Callable
 
@@ -8,15 +9,17 @@ if TYPE_CHECKING:
 
 
 @dataclass
-class Annotations:
-    annotations: list["Annotations"]
+class AnnotationCollection:
+    annotations: list["AnnotationCollection"]
 
-    def filter(self, predicate: Callable[["Annotation"], bool]) -> "Annotations":
+    def filter(
+        self, predicate: Callable[["Annotation"], bool]
+    ) -> "AnnotationCollection":
         pass
 
     def overlay(self) -> None:
         pass
 
     @staticmethod
-    def from_frame(frame: "Frame") -> "Annotations":
+    def from_frame(frame: "Frame") -> "AnnotationCollection":
         pass
