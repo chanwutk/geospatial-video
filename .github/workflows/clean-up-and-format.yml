@@ -50,7 +50,7 @@ jobs:
         run: python -m autoflake --recursive --in-place --remove-all-unused-imports --ignore-init-module-imports --expand-star-imports geospatialvideo
 
       - name: Fix lint with autopep8
-        run: python -m autopep8 --verbose --recursive --in-place --aggressive --aggressive geospatialvideo
+        run: python -m autopep8 geospatialvideo
         
       - name: Format with black
         run: python -m black --config pyproject.toml geospatialvideo
