@@ -12,9 +12,7 @@ if TYPE_CHECKING:
 class AnnotationCollection:
     annotations: list["AnnotationCollection"]
 
-    def filter(
-        self, predicate: Callable[["Annotation"], bool]
-    ) -> "AnnotationCollection":
+    def filter(self, predicate: Callable[["Annotation"], bool]) -> "AnnotationCollection":
         pass
 
     def overlay(self) -> None:
