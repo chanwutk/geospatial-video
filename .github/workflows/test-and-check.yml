@@ -35,7 +35,11 @@ jobs:
         run: poetry install --no-interaction
       
       - name: Unit Test
-        run: poetry run pytest tests
+        run: |
+          if [ -d "tests" ] 
+          then
+            poetry run pytest tests
+          fi
   check:
     name: Type Check
     runs-on: ubuntu-latest
