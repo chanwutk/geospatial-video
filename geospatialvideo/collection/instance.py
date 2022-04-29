@@ -13,7 +13,9 @@ if TYPE_CHECKING:
 class InstanceCollection:
     instances: List["Instance"]
 
-    def crossproduct(self, *others: "InstanceCollection", on: str = "frame") -> "JoinedInstanceCollection":
+    def crossproduct(
+        self, *others: "InstanceCollection", on: str = "frame"
+    ) -> "JoinedInstanceCollection":
         return JoinedInstanceCollection([])
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":
