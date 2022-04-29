@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any, Dict
+from typing import TYPE_CHECKING, Any, Dict, Optional
 
 if TYPE_CHECKING:
     from geospatialvideo.frame import Frame
@@ -8,9 +8,10 @@ if TYPE_CHECKING:
 
 @dataclass
 class Annotation:
-    instance: "Instance"
-    frame: "Frame"
+    instance: Optional["Instance"]
+    frame: Optional["Frame"]
     property: Dict[str, Any]
 
+    @staticmethod
     def from_db(id: str) -> "Annotation":
-        pass
+        return Annotation(None, None, {})

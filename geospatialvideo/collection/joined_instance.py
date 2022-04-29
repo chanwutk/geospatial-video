@@ -18,10 +18,10 @@ class JoinedInstanceCollection:
     joined_instances: List[tuple["Instance"]]
 
     def join(self, *others: "InstanceCollection", on: str = "frame") -> "JoinedInstanceCollection":
-        pass
+        return JoinedInstanceCollection([])
 
     def filter(self, predicate: JoinPredicate) -> "JoinedInstanceCollection":
-        pass
+        return JoinedInstanceCollection([])
 
-    def overlay() -> None:
+    def overlay(self) -> None:
         pass

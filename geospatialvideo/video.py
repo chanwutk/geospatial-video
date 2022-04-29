@@ -15,4 +15,4 @@ class Video:
 
     @staticmethod
     def from_db(id: str) -> "Video":
-        pass
+        return Video("", [], [], {})

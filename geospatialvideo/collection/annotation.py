@@ -10,14 +10,14 @@ if TYPE_CHECKING:
 
 @dataclass
 class AnnotationCollection:
-    annotations: List["AnnotationCollection"]
+    annotations: List["Annotation"]
 
     def filter(self, predicate: Callable[["Annotation"], bool]) -> "AnnotationCollection":
-        pass
+        return AnnotationCollection([])
 
     def overlay(self) -> None:
         pass
 
     @staticmethod
     def from_frame(frame: "Frame") -> "AnnotationCollection":
-        pass
+        return AnnotationCollection(frame.annotations)

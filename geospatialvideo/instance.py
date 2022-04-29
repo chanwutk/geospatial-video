@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 if TYPE_CHECKING:
     from geospatialvideo.annotation import Annotation
@@ -8,10 +8,10 @@ if TYPE_CHECKING:
 
 @dataclass
 class Instance:
-    video: "Video"
+    video: Optional["Video"]
     annotations: List["Annotation"]
     property: Dict[str, Any]
 
     @staticmethod
     def from_db(id: str) -> "Instance":
-        pass
+        return Instance(None, [], {})

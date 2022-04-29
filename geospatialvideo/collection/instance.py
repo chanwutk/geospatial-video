@@ -14,10 +14,10 @@ class InstanceCollection:
     instances: List["Instance"]
 
     def crossproduct(self, *others: "InstanceCollection", on: str = "frame") -> "JoinedInstanceCollection":
-        pass
+        return JoinedInstanceCollection([])
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":
-        pass
+        return InstanceCollection([])
 
-    def overlay() -> None:
+    def overlay(self) -> None:
         pass
