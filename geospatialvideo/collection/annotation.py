@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Callable, List
 
 if TYPE_CHECKING:
     from geospatialvideo.annotation import Annotation
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 @dataclass
 class AnnotationCollection:
-    annotations: list["AnnotationCollection"]
+    annotations: List["AnnotationCollection"]
 
     def filter(self, predicate: Callable[["Annotation"], bool]) -> "AnnotationCollection":
         pass

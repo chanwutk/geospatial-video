@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, List, Union
 
 if TYPE_CHECKING:
     from geospatialvideo.frame import Frame
@@ -8,6 +8,11 @@ if TYPE_CHECKING:
 
 @dataclass
 class Video:
-    video_file: str | list[str]
-    frames: list["Frame"]
-    instances: list["Instance"]
+    video_file: Union[str, List[str]]
+    frames: List["Frame"]
+    instances: List["Instance"]
+    property: Dict[str, Any]
+
+    @staticmethod
+    def from_db(id: str) -> "Video":
+        pass

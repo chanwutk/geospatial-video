@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
 
 if TYPE_CHECKING:
     from geospatialvideo.collection.frame import FrameCollection
@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 @dataclass
 class VideoCollection:
-    videos: list["Video"]
+    videos: List["Video"]
 
     def flatten_frames(self) -> "FrameCollection":
         pass

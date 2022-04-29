@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Protocol
+from typing import TYPE_CHECKING, List, Protocol
 
 if TYPE_CHECKING:
     from geospatialvideo.collection.instance import InstanceCollection
@@ -15,9 +15,9 @@ class JoinPredicate(Protocol):
 
 @dataclass
 class JoinedInstanceCollection:
-    joined_instances: list[tuple["Instance"]]
+    joined_instances: List[tuple["Instance"]]
 
-    def join(self, *others: tuple["InstanceCollection"]) -> "JoinedInstanceCollection":
+    def join(self, *others: "InstanceCollection", on: str = "frame") -> "JoinedInstanceCollection":
         pass
 
     def filter(self, predicate: JoinPredicate) -> "JoinedInstanceCollection":
