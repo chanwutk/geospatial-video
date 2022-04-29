@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Callable, List
 
 if TYPE_CHECKING:
     from geospatialvideo.collection.joined_instance import \
@@ -11,13 +11,15 @@ if TYPE_CHECKING:
 
 @dataclass
 class InstanceCollection:
-    instances: list["Instance"]
+    instances: List["Instance"]
 
-    def crossproduct(self, *others: tuple["InstanceCollection"]) -> "JoinedInstanceCollection":
-        pass
+    def crossproduct(
+        self, *others: "InstanceCollection", on: str = "frame"
+    ) -> "JoinedInstanceCollection":
+        return JoinedInstanceCollection([])
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":
-        pass
+        return InstanceCollection([])
 
-    def overlay() -> None:
+    def overlay(self) -> None:
         pass

@@ -1,18 +1,20 @@
+import itertools
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
+
+from geospatialvideo.collection.frame import FrameCollection
+from geospatialvideo.collection.instance import InstanceCollection
 
 if TYPE_CHECKING:
-    from geospatialvideo.collection.frame import FrameCollection
-    from geospatialvideo.collection.instance import InstanceCollection
     from geospatialvideo.video import Video
 
 
 @dataclass
 class VideoCollection:
-    videos: list["Video"]
+    videos: List["Video"]
 
     def flatten_frames(self) -> "FrameCollection":
-        pass
+        return FrameCollection([*itertools.chain(*[v.frames for v in self.videos])])
 
     def flatten_instances(self) -> "InstanceCollection":
-        pass
+        return InstanceCollection([*itertools.chain(*[v.instances for v in self.videos])])

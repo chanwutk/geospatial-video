@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Callable, List
 
 if TYPE_CHECKING:
     from geospatialvideo.frame import Frame
@@ -9,10 +9,10 @@ if TYPE_CHECKING:
 
 @dataclass
 class FrameCollection:
-    frames: list["Frame"]
+    frames: List["Frame"]
 
     def filter(self, predicate: Callable[["Frame"], bool]) -> "FrameCollection":
-        pass
+        return FrameCollection([])
 
     def overlay(self) -> None:
         pass
