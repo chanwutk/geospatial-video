@@ -13,10 +13,10 @@ def decelerating(i: "Instance") -> bool:
 
     distance = 0.0
     for ix in range(len(locations) - 1):
-            d = dist(locations[ix], locations[ix + 1])
-            if ix > 0:
-                if d - distance > 0:
-                    return False
-            distance = d
+        d = dist(locations[ix], locations[ix + 1])
+        if ix > 0:
+            if d - distance > 0:
+                return False
+        distance = d
 
     return True
