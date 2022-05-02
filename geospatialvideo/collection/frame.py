@@ -12,7 +12,7 @@ class FrameCollection:
     frames: List["Frame"]
 
     def filter(self, predicate: Callable[["Frame"], bool]) -> "FrameCollection":
-        return FrameCollection([])
+        return FrameCollection([f for f in self.frames if predicate(f)])
 
     def overlay(self) -> None:
         pass
