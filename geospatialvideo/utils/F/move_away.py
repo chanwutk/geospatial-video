@@ -1,8 +1,11 @@
-from .dist import dist
 from geospatialvideo.instance import Instance
 
+from .dist import dist
+
 # Checks for all instances that ever move away from another instance,
-# or have another instance move away from them 
+# or have another instance move away from them
+
+
 def move_away(i1: "Instance", i2: "Instance") -> bool:
     annotations = []
     for a1 in i1.annotations:
@@ -18,7 +21,7 @@ def move_away(i1: "Instance", i2: "Instance") -> bool:
 
     check = [False] * len(distances)
     for i in range(len(distances) - 1):
-        if distances[i] > distances[i+1]:
-            check[i], check[i+1] = True, True
+        if distances[i] > distances[i + 1]:
+            check[i], check[i + 1] = True, True
 
     return any(check)

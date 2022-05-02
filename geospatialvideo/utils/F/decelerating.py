@@ -1,8 +1,11 @@
-from .dist import dist
 from geospatialvideo.instance import Instance
 
+from .dist import dist
+
 # Checks if an instance is decelerating.
-# Assumes that frames are isochronous; that is, they are recorded at regular time intervals. 
+# Assumes that frames are isochronous; that is, they are recorded at regular time intervals.
+
+
 def decelerating(i: "Instance") -> bool:
     locations = []
     for a in i.annotations:
@@ -10,7 +13,7 @@ def decelerating(i: "Instance") -> bool:
 
     distance = 0
     for i in range(len(locations) - 1):
-        d = dist(locations[i], locations[i+1])
+        d = dist(locations[i], locations[i + 1])
         if i > 0:
             if d - distance > 0:
                 return False
