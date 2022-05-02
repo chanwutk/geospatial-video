@@ -9,8 +9,8 @@ def accelerating(i: "Instance") -> bool:
         locations.append([a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]])
 
     distance = 0
-    for i in range(len(locations) - 1):
-        d = dist(locations[i], locations[i+1])
+    for l in range(len(locations) - 1):
+        d = dist(locations[l], locations[l+1])
         if i > 0:
             if d - distance < 0:
                 return False

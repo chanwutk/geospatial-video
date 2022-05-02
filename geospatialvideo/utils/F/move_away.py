@@ -17,8 +17,8 @@ def move_away(i1: "Instance", i2: "Instance") -> bool:
         distances.append(dist(x, y))
 
     check = [False] * len(distances)
-    for i in range(len(distances) - 1):
-        if distances[i] > distances[i+1]:
-            check[i], check[i+1] = True, True
+    for l in range(len(distances) - 1):
+        if distances[l] > distances[l+1]:
+            check[l], check[l+1] = True, True
 
     return any(check)
