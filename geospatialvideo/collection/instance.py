@@ -27,7 +27,7 @@ class InstanceCollection:
         return JoinedInstanceCollection([
             p for p in itertools.product(self.instances, *[o.instances for o in others])
             if properties_match(p)
-        ])
+        ], on)
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":
         return InstanceCollection([i for i in self.instances if predicate(i)])
