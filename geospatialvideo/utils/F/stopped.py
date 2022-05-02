@@ -1,5 +1,7 @@
 from geospatialvideo.instance import Instance
 
+from .dist import dist
+
 # Checks if an instance is stopped.
 # 'tol' parameter allows us to consider an object stopped even if there is slight movement,
 # with default tolerance of 0.5 distance units
@@ -12,7 +14,7 @@ def stopped(i: "Instance", tol: float = 0.5) -> bool:
 
     check = [False] * len(locations)
     for l in range(len(locations) - 1):
-        if locations[l] - locations[l + 1] <= 0.5:
+        if dist(locations[l], locations[l + 1]) <= 0.5:
             check[l], check[l + 1] = True, True
 
     return any(check)
