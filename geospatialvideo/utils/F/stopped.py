@@ -12,7 +12,7 @@ def stopped(i: "Instance", tol: float = 0.5) -> bool:
 
     check = [False] * len(locations)
     for l in range(len(locations) - 1):
-        if locations[l] - locations[l+1] <= 0.5:
-            check[l], check[l+1] = True, True
+        if locations[l] - locations[l + 1] <= 0.5:
+            check[l], check[l + 1] = True, True
 
     return any(check)

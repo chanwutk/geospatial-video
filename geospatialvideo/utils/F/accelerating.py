@@ -13,7 +13,7 @@ def accelerating(i: "Instance") -> bool:
 
     distance = 0
     for l in range(len(locations) - 1):
-        d = dist(locations[l], locations[l+1])
+        d = dist(locations[l], locations[l + 1])
         if i > 0:
             if d - distance < 0:
                 return False

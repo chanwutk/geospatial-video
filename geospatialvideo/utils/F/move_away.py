@@ -21,7 +21,7 @@ def move_away(i1: "Instance", i2: "Instance") -> bool:
 
     check = [False] * len(distances)
     for l in range(len(distances) - 1):
-        if distances[l] > distances[l+1]:
-            check[l], check[l+1] = True, True
+        if distances[l] > distances[l + 1]:
+            check[l], check[l + 1] = True, True
 
     return any(check)
