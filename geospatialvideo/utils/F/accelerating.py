@@ -11,7 +11,7 @@ def accelerating(i: "Instance") -> bool:
     for a in i.annotations:
         locations.append([a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]])
 
-    distance = 0
+    distance = 0.0
     for l in range(len(locations) - 1):
         d = dist(locations[l], locations[l + 1])
         if l > 0:
