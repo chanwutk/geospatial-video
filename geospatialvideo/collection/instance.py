@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import itertools
+from dataclasses import dataclass
 from typing import TYPE_CHECKING, Callable, List, Tuple
 
 from geospatialvideo.collection.joined_instance import JoinedInstanceCollection
@@ -24,10 +24,14 @@ class InstanceCollection:
                     return False
             return True
 
-        return JoinedInstanceCollection([
-            p for p in itertools.product(self.instances, *[o.instances for o in others])
-            if properties_match(p)
-        ], on)
+        return JoinedInstanceCollection(
+            [
+                p
+                for p in itertools.product(self.instances, *[o.instances for o in others])
+                if properties_match(p)
+            ],
+            on,
+        )
 
     def filter(self, predicate: Callable[["Instance"], bool]) -> "InstanceCollection":
         return InstanceCollection([i for i in self.instances if predicate(i)])
