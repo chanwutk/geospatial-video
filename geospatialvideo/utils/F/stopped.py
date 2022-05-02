@@ -13,8 +13,8 @@ def stopped(i: "Instance", tol: float = 0.5) -> bool:
         locations.append([a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]])
 
     check = [False] * len(locations)
-    for l in range(len(locations) - 1):
-        if dist(locations[l], locations[l + 1]) <= 0.5:
-            check[l], check[l + 1] = True, True
+    for ix in range(len(locations) - 1):
+        if dist(locations[ix], locations[ix + 1]) <= 0.5:
+            check[ix], check[ix + 1] = True, True
 
     return any(check)

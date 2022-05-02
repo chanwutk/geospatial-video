@@ -12,11 +12,11 @@ def decelerating(i: "Instance") -> bool:
         locations.append([a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]])
 
     distance = 0.0
-    for l in range(len(locations) - 1):
-        d = dist(locations[l], locations[l + 1])
-        if l > 0:
-            if d - distance > 0:
-                return False
-        distance = d
+    for ix in range(len(locations) - 1):
+            d = dist(locations[ix], locations[ix + 1])
+            if ix > 0:
+                if d - distance > 0:
+                    return False
+            distance = d
 
     return True
