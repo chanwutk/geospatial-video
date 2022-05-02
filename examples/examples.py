@@ -1,7 +1,8 @@
+# type: ignore
 from __future__ import annotations
 from math import sqrt
-from ..geospatialvideo.collection import AnnotationCollection, FrameCollection, InstanceCollection, JoinedInstanceCollection, VideoCollection
-from ..geospatialvideo import Annotation, Frame, Instance, Video
+from geospatialvideo.collection import AnnotationCollection, FrameCollection, InstanceCollection, JoinedInstanceCollection, VideoCollection
+from geospatialvideo import Annotation, Frame, Instance, Video
 
 v1 = Video.from_db(id="v1")
 v2 = Video.from_db(id="v2")

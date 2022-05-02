@@ -13,7 +13,7 @@ class AnnotationCollection:
     annotations: List["Annotation"]
 
     def filter(self, predicate: Callable[["Annotation"], bool]) -> "AnnotationCollection":
-        return AnnotationCollection([])
+        return AnnotationCollection([a for a in self.annotations if predicate(a)])
 
     def overlay(self) -> None:
         pass
