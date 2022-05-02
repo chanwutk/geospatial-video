@@ -1,8 +1,11 @@
-from .dist import dist
 from geospatialvideo.instance import Instance
 
+from .dist import dist
+
 # Checks if an instance is accelerating.
-# Assumes that frames are isochronous; that is, they are recorded at regular time intervals. 
+# Assumes that frames are isochronous; that is, they are recorded at regular time intervals.
+
+
 def accelerating(i: "Instance") -> bool:
     locations = []
     for a in i.annotations:
