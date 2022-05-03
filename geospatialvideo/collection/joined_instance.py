@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import itertools
+from dataclasses import dataclass
 from typing import TYPE_CHECKING, List, Protocol, Tuple
 
 if TYPE_CHECKING:
@@ -27,15 +27,20 @@ class JoinedInstanceCollection:
                     return False
             return True
 
-        return JoinedInstanceCollection([
-            (*j, *p)
-            for p in itertools.product(*[o.instances for o in others])
-            for j in self.joined_instances
-            if p[0].property[self.on_key] == j[0].property[self.on_key] and properties_match(p)
-        ], self.on_key)
+        return JoinedInstanceCollection(
+            [
+                (*j, *p)
+                for p in itertools.product(*[o.instances for o in others])
+                for j in self.joined_instances
+                if p[0].property[self.on_key] == j[0].property[self.on_key] and properties_match(p)
+            ],
+            self.on_key,
+        )
 
     def filter(self, predicate: JoinPredicate) -> "JoinedInstanceCollection":
-        return JoinedInstanceCollection([i for i in self.joined_instances if predicate(*i)], self.on_key)
+        return JoinedInstanceCollection(
+            [i for i in self.joined_instances if predicate(*i)], self.on_key
+        )
 
     def overlay(self) -> None:
         pass
