@@ -13,7 +13,7 @@ class Frame:
     order: int
     timestamp: datetime.datetime
     annotations: List["Annotation"]
-    propperty: Dict[str, Any]
+    property: Dict[str, Any]
 
     @staticmethod
     def from_db(id: str) -> "Frame":
