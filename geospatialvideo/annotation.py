@@ -1,7 +1,7 @@
 import pickle
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any, Dict, Optional
 from pathlib import Path
+from typing import TYPE_CHECKING, Any, Dict, Optional
 
 if TYPE_CHECKING:
     from geospatialvideo.frame import Frame
@@ -16,14 +16,16 @@ DATA_DIR = Path("./data/")
 #         'ego_heading', "category"
 # ]
 
+
 def _read_pickle(fpath):
     try:
         with open(fpath, "rb") as f:
             df = pickle.loads(f.read())
-    except:
+    except BaseException:
         raise FileExistsError(f"File not found at {fpath}.")
 
     return df
+
 
 @dataclass
 class Annotation:
