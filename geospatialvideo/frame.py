@@ -16,5 +16,9 @@ class Frame:
     property: Dict[str, Any]
 
     @staticmethod
-    def from_db(id: str) -> "Frame":
-        return Frame(None, 0, datetime.datetime.now(), [], {})
+    def from_db(id: str, order: int) -> "Frame":
+        frame_annotations = Annotation.from_db(scene_id=id, frame_order=order)
+        timestamp = frame_annotations['timestamp']
+        properties = frame_annotations.property
+
+        return Frame(None, order, timestamp, frame_annotations, properties)

@@ -14,5 +14,6 @@ class Video:
     property: Dict[str, Any]
 
     @staticmethod
-    def from_db(id: str) -> "Video":
+    def from_db(scene_id: str) -> "Video":
+
         return Video("", [], [], {})
