@@ -57,30 +57,27 @@ def dist(loc1: list, loc2: list) -> float:
         d += (x - y) ** 2
     return sqrt(d)
 
-def move_away(i1: "Instance", i2: "Instance") -> bool:
-    annotations = []
-    for a1 in i1.annotations:
-        for a2 in i2.annotations:
-            if a1.frame == a2.frame:
-                annotations.append([a1, a2])
+def move_away(i1: "Instance", i2: "Instance", f1: "Frame", f2: "Frame") -> bool:
+    i1_loc1 = []
+    i1_loc2 = []
+    i2_loc1 = []
+    i2_loc2 = []
 
-    distances = []
-    for a1, a2 in annotations:
-        x = [a1.property["x_loc"], a1.property["y_loc"], a1.property["z_loc"]]
-        y = [a2.property["x_loc"], a2.property["y_loc"], a2.property["z_loc"]]
-        distances.append(dist(x, y))
+    for a, b in zip(i1.annotations, i2.annotations):
+        if a.frame == f1:
+            i1_loc1 = [a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]]
+            i2_loc1 = [b.property["x_loc"], b.property["y_loc"], b.property["z_loc"]]
+        elif a.frame == f2:
+            i1_loc2 = [a.property["x_loc"], a.property["y_loc"], a.property["z_loc"]]
+            i2_loc2 = [b.property["x_loc"], b.property["y_loc"], b.property["z_loc"]]
 
-    check = [False] * len(distances)
-    for i in range(len(distances) - 1):
-        if distances[i] > distances[i+1]:
-            check[i], check[i+1] = True, True
-
-    return any(check)
+    return dist(i1_loc1, i2_loc1) < dist(i1_loc2, i2_loc2)
 
 result = videos \
     .flatten_instances() \
     .crossproduct(videos.flatten_instances(), on="frame") \
-    .filter(lambda i1, i2: move_away(i1, i2))
+    .sliding(2) \
+    .filter(lambda i1, i2, f1, f2: move_away(i1, i2, f1, f2))
 
 result.overlay()
 
