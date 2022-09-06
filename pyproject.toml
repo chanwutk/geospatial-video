@@ -1,11 +1,12 @@
 [tool.poetry]
-name = "geospatial-video"
+name = "geospatialvideo"
 version = "0.1.0"
 description = "A tool for video-geospatial data exploration"
 authors = ["Chanwut (Mick) Kittivorawong <chanwutk@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+opencv-python = "^4.5.5"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
@@ -17,6 +18,7 @@ pyright = "^1.1.235"
 jupyterlab = "^3.3.3"
 pandas = "^1.4.2"
 mypy = "^0.950"
+pyre-check = "^0.9.13"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

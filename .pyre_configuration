@@ -1,0 +1,10 @@
+{
+  "site_package_search_strategy": "pep561",
+  "source_directories": [
+    {
+      "import_root": ".",
+      "source": "geospatialvideo"
+    }
+  ],
+  "taint_models_path": "/Users/chanwutk/Documents/geo-video/.venv/lib/pyre_check/taint"
+}
